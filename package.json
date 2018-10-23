@@ -1,10 +1,11 @@
 {
   "name": "allinpay",
   "version": "1.0.6",
-  "description": "Allinpay Node.js SDK 通联支付 Node.js SDK",
+  "description": "Allinpay Node.js SDK 通联支付 Node.js SDK通联云账户t",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "mocha": "mocha ./test -t 2000"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "dependencies": {
     "iconv-lite": "^0.4.19",
     "lodash": "^4.17.5",
+    "moment": "^2.22.2",
     "node-rsa": "^0.4.2",
     "request": "^2.84.0",
     "request-promise": "^4.2.2",

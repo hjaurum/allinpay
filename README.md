@@ -262,3 +262,33 @@ const result = await wanjiantong.verifyBankCard({
             phone: '1868230', // 如果是四要素验证才传phone
             });
 ```
+
+## 通联云账户基础服务（SOAClient）
+
+### 初始化client
+```js
+try{
+    client.setServerAddress(serverAddress);
+    client.setPrivateKey(privateKey);
+    client.setPublicKey(publicKey);
+    client.setSysId(sysid);
+    client.setSignMethod(signMethod);
+    client.setVersion(config.YUN.VERSION);
+}catch(err){
+    console.error(err);
+}
+```
+
+### 使用例子-创建一个会员
+```js
+const soaName = "MemberService";
+const param = {
+    bizUserId: '徐龙66666666',
+    memberType: '3',
+    source: '2',
+};
+
+const result = await client.request(soaName, "createMember", param);
+```
+
+> 密钥转换：[pfxToPem](https://www.example-code.com/nodejs/pfx_convert_to_pem.asp)
