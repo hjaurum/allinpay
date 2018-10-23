@@ -17,6 +17,9 @@ module.exports = {
         syb_cancel: 'https://vsp.allinpay.com/apiweb/unitorder/cancel',
         syb_refund: 'https://vsp.allinpay.com/apiweb/unitorder/refund',
         syb_query: 'https://vsp.allinpay.com/apiweb/unitorder/query',
+
+        // 通联云账户
+        yun: 'http://116.228.64.55:9092/service/soa',
     },
     /**
      * 通联测试环境url
@@ -27,6 +30,7 @@ module.exports = {
         refundQuery: 'http://ceshi.allinpay.com/mchtoq/refundQuery',
 
         accountPay: 'https://113.108.182.3/aipg/ProcessServlet',
+        yun: 'http://116.228.64.55:9092/service/soa',
     },
     INPUT_CHARSET: {
         UTF8: 1,
@@ -53,6 +57,12 @@ module.exports = {
         PERSONAL_CREDIT_CARD: 11,
         FOREIGN_CARD: 23,
         CERTIFIED_PAY: 28, // 认证支付，TODO搞懂这个是什么鬼？
+    },
+    // 通联云账户
+    YUN: {
+        VERSION: '1.0',
+        TIME_TYPE: 'YYYY-MM-DD HH:mm:ss',
+        SSOID: 'ime_public_ssoid',
     }
 
 };
