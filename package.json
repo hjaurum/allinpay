@@ -1,6 +1,6 @@
 {
   "name": "allinpay",
-  "version": "1.0.8",
+  "version": "1.0.8"
   "description": "Allinpay Node.js SDK 通联支付 Node.js SDK通联云账户t",
   "main": "index.js",
   "scripts": {
