@@ -111,6 +111,33 @@ class SOAClient {
         });
         return JSON.parse(resStr);
     }
+
+    async rsaEncrypt(str) {
+        return crypto.createSign(this.signMethod)
+          .update(str)
+          .sign({key: this.privateKey, passphrase: this.privateKeyPassphrase }, 'base64');
+    }
+
+    async verify(data) {
+        if (_.isEmpty(data.sysid)) {
+            throw new Error('缺少验签参数，sysid');
+        }
+        if (_.isEmpty(data.rps)) {
+            throw new Error('缺少验签参数，rps');
+        }
+        if (_.isEmpty(data.timestamp)) {
+            throw new Error('缺少验签参数，timestamp');
+        }
+        if (_.isEmpty(data.sign)) {
+            throw new Error('缺少验签参数，sign');
+        }
+        const verify = crypto.createVerify(this.signMethod);
+        const verifyStr = data.sysid + data.rps + data.timestamp;
+        verify.update(verifyStr);
+        const signature = data.sign;
+        return verify.verify(this.publicKey, signature, 'base64');
+    }
+
 }
 
 module.exports = SOAClient;
